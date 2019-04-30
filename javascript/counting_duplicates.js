@@ -27,6 +27,23 @@ function duplicateCount(text){
   return counter;
 }
 
+
+function duplicateCount(text){
+  seen = [];
+  count = 0;
+  console.log(text);
+  text.split("").forEach((char) => {
+    char = char.toLowerCase();
+    if (seen.indexOf(char) !== -1) {
+      if ((seen.filter(seen_char => seen_char === char)).length === 1) {
+        count += 1
+      }
+    }
+    seen.push(char);
+  });
+  return count;
+}
+
 // Test.assertEquals(duplicateCount(""), 0);
 // Test.assertEquals(duplicateCount("abcde"), 0);
 // Test.assertEquals(duplicateCount("aabbcde"), 2);
